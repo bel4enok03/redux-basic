@@ -3,6 +3,18 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { createStore } from 'redux';
+import cartReducer from './reducers/cartReducer';
+import { AddToCart, RemoveItem } from './actions';
+
+
+
+let store = createStore(cartReducer);
+store.subscribe(() => console.log(store.getState()))
+
+store.dispatch(AddToCart())
+store.dispatch(AddToCart())
+store.dispatch(RemoveItem())
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
